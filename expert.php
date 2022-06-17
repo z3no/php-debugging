@@ -86,7 +86,7 @@ function combineNames($str1 = "", $str2 = "") {
     return implode(" - ", $params);
 }
 
-/*
+
 function randomGenerate($arr, $amount) {
     for ($i = $amount; $i > 0; $i--) {
         array_push($arr, randomHeroName());
@@ -94,7 +94,7 @@ function randomGenerate($arr, $amount) {
 
     return $amount;
 }
-*/
+
 function randomHeroName()
 {
     $hero_firstnames = ["captain", "doctor", "iron", "Hank", "ant", "Wasp", "the", "Hawk", "Spider", "Black", "Carol"];
@@ -115,3 +115,22 @@ function copyright($year) {
 //print the copyright
 echo copyright(date('Y'));
 
+new_exercise(8);
+function login(string $email, string $password) {
+    if($email == 'john@example.be' && $password == 'pocahontas') {
+        return 'Welcome John Smith';
+        //return ' Smith';
+        // It is not possible to return multiple values in php it will stop at the first return. You can put the values you want to output in array.
+    } else {
+        return 'No access';
+    }
+}
+
+//do not change anything below
+//should great the user with his full name (John Smith)
+echo login('john@example.be', 'pocahontas');
+//no access
+echo login('john@example.be', 'dfgidfgdfg');
+//no access
+echo login('wrong@example.be', 'wrong');
+//you can change things again!
