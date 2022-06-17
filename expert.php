@@ -52,3 +52,66 @@ print_r($week);
 
 
 new_exercise(5);
+// === Exercise 5 ===
+// The array should be printing every letter of the alfabet (a-z) but instead it does that + aa-yz
+// Fix the code so the for loop only pushes a-z in the array
+
+// INFORMATION https://www.php.net/manual/en/function.range.php
+// range — Create an array containing a range of elements
+
+$arr = [];
+foreach (range('a', 'z') as $letter) {
+    array_push($arr, $letter);
+}
+
+print_r($arr); // Array ([0] => a, [1] => b, [2] => c, ...) a-z alfabetical array
+
+
+new_exercise(6);
+// === Final exercise ===
+// The fixed code should echo the following at the bottom:
+// Here is the name: $name - $name2
+// $name variables are decided as seen in the code, fix all the bugs whilst keeping the functionality!
+// This one sure required some focus and gave me some headache hehe
+$arr = [];
+
+
+function combineNames($str1 = "", $str2 = "") {
+    $params = [$str1, $str2];
+    foreach($params as &$param) {
+        if ($param == "") {
+            $param = randomHeroName();
+        }
+    }
+    return implode(" - ", $params);
+}
+
+/*
+function randomGenerate($arr, $amount) {
+    for ($i = $amount; $i > 0; $i--) {
+        array_push($arr, randomHeroName());
+    }
+
+    return $amount;
+}
+*/
+function randomHeroName()
+{
+    $hero_firstnames = ["captain", "doctor", "iron", "Hank", "ant", "Wasp", "the", "Hawk", "Spider", "Black", "Carol"];
+    $hero_lastnames = ["America", "Strange", "man", "Pym", "girl", "hulk", "eye", "widow", "panther", "daredevil", "marvel"];
+    $heroes = [$hero_firstnames, $hero_lastnames];
+    $randname = $heroes[rand(0,count($heroes)-1)][rand(0, 10)];
+
+    return $randname;
+}
+
+echo "Here is the name: " . combineNames();
+
+new_exercise(7);
+//INFORMATION https://www.php.net/manual/en/function.date.php
+function copyright($year) {
+    return "&copy; $year BeCode";
+}
+//print the copyright
+echo copyright(date('Y'));
+
